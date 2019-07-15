@@ -1,0 +1,16 @@
+<div class="container">
+   <div *ngIf="showErrorMessage" class="alert alert-danger alert-dismissible fade show" role="alert">
+        <p>Unable to display this post details. There is a backend error.</p>
+        <p *ngIf="errorMessage.length>0">{{errorMessage}}</p>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close" (click)="closeAlert()">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+  <button routerLink="/posts" class="btn btn-primary btn-sm mb-3" style="width: 60px">Back</button>
+  <div class="card" *ngIf="post" style="border-color: green">
+    <div class="card-body">
+      <h3 style="color: lightcoral">{{post.title}}</h3>
+      <p>{{post.body}}</p>
+    </div>
+  </div>
+</div>

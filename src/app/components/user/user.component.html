@@ -1,0 +1,15 @@
+<div class="container">
+  <button routerLink="/users" class="btn btn-primary btn-sm mb-3" style="width: 60px">Back</button>
+  <h2 style="color: lightcoral">{{user.name}}</h2>
+  <div class="card" *ngIf="user" style="border-color: green">
+    <div class="card-body">
+      <ul class="list-group">
+        <li class="list-group-item" style="border-color: green">Phone: {{user.phone}}</li>
+        <li class="list-group-item" style="border-color: green">Email: {{user.email}}</li>
+        <li class="list-group-item" style="border-color: green">Website: {{user.website}}</li>
+        <li class="list-group-item" style="border-color: green">Address: {{user.address.street}} {{user.address.suite}}, {{user.address.city}} , {{user.address.zipcode}}
+        </li>
+        <li class="list-group-item" style="border-color: green">Company: {{user.company.name}}</li>
+      </ul>
+    </div>
+  </div>

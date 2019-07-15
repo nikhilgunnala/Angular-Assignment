@@ -1,0 +1,48 @@
+<!-- <app-post-form (addNewPost)="addNewPost($event)"></app-post-form> -->
+<div class="container">
+    <button class="btn btn-primary mb-2" (click)="showPostsForm = !showPostsForm">Create Post</button>
+    <div class="card card-body mb-2" *ngIf="showPostsForm" style="border-color: green">
+        <h3>Add Post</h3>
+        <form #postForm="ngForm" (ngSubmit)="onPostFormSubmit(postForm)">
+            <div class="form-group">
+                <label>Title</label>
+                <input type="text" class="form-control" name="title" [(ngModel)]="postTitle"
+                    [ngClass]="{'is-invalid':title.errors && title.touched}" required #title="ngModel" maxlength="24"
+                    pattern="^[A-Za-z0-9]+$">
+                <div [hidden]="!title.errors?.required" class="invalid-feedback">
+                    Title is required
+                </div>
+                <div [hidden]="!title.errors?.maxlength && !title.errors?.pattern" class="invalid-feedback">
+                    Post title cannot exceed 24 characters and should be alphanumeric only
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Body</label>
+                <input type="text" class="form-control" name="body" [(ngModel)]="postBody"
+                    [ngClass]="{'is-invalid':body.errors && body.touched}" required #body="ngModel" maxlength="50">
+                <div [hidden]="!body.errors?.required" class="invalid-feedback">
+                    Body is required
+                </div>
+                <div [hidden]="!body.errors?.maxlength" class="invalid-feedback">
+                    Post body cannot exceed 50 characters
+                </div>
+            </div>
+            <button [disabled]="!postForm.form.valid" class="btn btn-primary btn-block">Add Post</button>
+        </form>
+    </div>
+    <h2>Posts</h2>
+    <div *ngIf="postAdded" class="alert alert-success alert-dismissible fade show" role="alert">
+        <p>New Post Succesfully Added !</p>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close" (click)="closeAlert()">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="card mb-2" *ngFor="let post of posts" style="border-color: green">
+        <div class="card-body">
+            <h3 style="color: lightcoral">{{post.title}}</h3>
+            <p>{{post.body}}</p>
+            <hr>
+            <button class="btn btn-dark btn-sm float-right" routerLink="/posts/{{post.id}}">Post Details</button>
+        </div>
+    </div>
+</div>
