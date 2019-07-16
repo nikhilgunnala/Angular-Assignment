@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { User } from 'src/app/models/User';
 import { UserService } from 'src/app/services/user.service';
 
@@ -29,25 +29,3 @@ export class UsersComponent implements OnInit {
 
 }
   
-  //showUserForm:Boolean = true;
-
-
-  //@ViewChild('userForm') form:any;
-
- /*  addUser(e){
-    this.users.unshift(this.user);
-    //This new user is used to clear out the form after adding new user.
-    this.user = new User();
-  } */
-
- /*  onUserFormSubmit({value, valid}: {value:User , valid:boolean}){
-  if(!valid){
-    
-  } else{
-    //Add it to the users - make a post call
-    value.hide=true;
-    this.users.unshift(value);
-  }
-  } */
-
-

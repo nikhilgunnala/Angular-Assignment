@@ -4,12 +4,22 @@
   <div class="card" *ngIf="user" style="border-color: green">
     <div class="card-body">
       <ul class="list-group">
-        <li class="list-group-item" style="border-color: green">Phone: {{user.phone}}</li>
-        <li class="list-group-item" style="border-color: green">Email: {{user.email}}</li>
-        <li class="list-group-item" style="border-color: green">Website: {{user.website}}</li>
-        <li class="list-group-item" style="border-color: green">Address: {{user.address.street}} {{user.address.suite}}, {{user.address.city}} , {{user.address.zipcode}}
+        <li class="list-group-item" style="border-color: green; color: green">Phone: {{user.phone}}</li>
+        <li class="list-group-item" style="border-color: green; color: green">Email: {{user.email}}</li>
+        <li class="list-group-item" style="border-color: green; color: green">Website: {{user.website}}</li>
+        <li class="list-group-item" style="border-color: green; color: green">Address: {{user.address.street}} {{user.address.suite}},
+          {{user.address.city}} , {{user.address.zipcode}}
+           <ul class="mt-2">
+            <li style="color: lightcoral">Latitude: {{user.address.geo.lat}}</li>
+            <li style="color: lightcoral">Longitude: {{user.address.geo.lng}}</li>
+          </ul>
         </li>
-        <li class="list-group-item" style="border-color: green">Company: {{user.company.name}}</li>
+        <li class="list-group-item" style="border-color: green; color: green">Company: {{user.company.name}}
+          <ul class="mt-2">
+            <li style="color: lightcoral">Catch Phrase: {{user.company.catchPhrase}}</li>
+            <li style="color: lightcoral">Business: {{user.company.bs}}</li>
+          </ul>
+        </li>
       </ul>
     </div>
   </div>

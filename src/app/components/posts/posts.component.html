@@ -40,7 +40,7 @@
     <div class="card mb-2" *ngFor="let post of posts" style="border-color: green">
         <div class="card-body">
             <h3 style="color: lightcoral">{{post.title}}</h3>
-            <p>{{post.body}}</p>
+            <p style="color: green">{{post.body}}</p>
             <hr>
             <button class="btn btn-dark btn-sm float-right" routerLink="/posts/{{post.id}}">Post Details</button>
         </div>
